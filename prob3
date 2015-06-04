@@ -1,0 +1,6 @@
+var fs = require('fs')
+var contents = fs.readFile("dogs.txt","utf8", function(err,contents){
+	if(err){ throw err}
+	var result = contents.toString()
+   console.log(result.split("\n").length-1);
+});
