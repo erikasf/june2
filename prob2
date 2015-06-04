@@ -1,0 +1,5 @@
+var fs = require("fs")
+var contents = fs.readFileSync("dogs.txt")
+var result = contents.toString()
+console.log(result.split("\n").length-1);
+
