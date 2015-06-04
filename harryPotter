@@ -1,0 +1,23 @@
+var http = require("http");
+var array = []
+http.get("http://omdbapi.com/?i=tt0241527", function(response){
+    response.setEncoding("utf8");//hi, could you tell me why this time around we're not asking for requests?is it because we're only getting
+    //something from the url and then just pushing back to it?)
+    response.on("data", function(data){
+        array.push(data); 
+        console.log(data);
+        console.log(array);
+    })
+    console.log("end")
+    response.on("end", function(){
+	    console.log("really?");
+	    http.get("http://omdbapi.com/?i=tt0295297", function(res){
+		    response.setEncoding("utf8");
+		    response.on("data", function(data){
+	    	
+		        array.push(data);
+		        console.log( array);
+		    })	
+	    })
+	})
+});
